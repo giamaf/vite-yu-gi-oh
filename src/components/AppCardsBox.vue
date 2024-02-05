@@ -11,7 +11,6 @@ export default {
 </script>
  
 <template>
-    <!-- Template -->
     <main class="">
         <div class="cards-box container">
 
@@ -36,8 +35,6 @@ main {
         justify-content: center;
         align-items: center;
         background-color: whitesmoke;
-        width: 100%;
-        height: 400px;
         border-radius: 20px;
         padding: 30px 20px;
 

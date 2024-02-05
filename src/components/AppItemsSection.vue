@@ -1,8 +1,13 @@
 <script>
+import { store } from '../assets/data/store';
 import AppCard from './AppCard.vue';
 export default {
     // Logica Javascript
     name: 'AppItemsSection',
+
+    data: () => ({
+        store
+    }),
 
     components: {
         AppCard
@@ -11,11 +16,11 @@ export default {
 </script>
  
 <template>
-    <!-- Template -->
     <section class="items-box">
         <div class="row row-cols-5">
-            <div class="col">
-                <AppCard />
+            <div class="col" v-for="pokemon in store.pokemons" :key="pokemon.id">
+                <AppCard :id="pokemon.id" :image="pokemon.imageUrl" :number="pokemon.number" :name="pokemon.name"
+                    :type="pokemon.type1" :color="pokemon.color" />
             </div>
         </div>
     </section>
@@ -28,5 +33,6 @@ export default {
     border-radius: 20px;
     width: 100%;
     height: 100%;
+    padding: 10px;
 }
 </style>
