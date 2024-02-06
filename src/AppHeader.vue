@@ -11,7 +11,7 @@ export default {
 <template>
     <header>
         <div class="container d-flex justify-content-end">
-            <AppSearch @search-pokemon="$emit('search-pokemon', $event)" @reset-pokemons="$emit('reset-data')" />
+            <AppSearch @search-pokemon="$emit('search-pokemon', $event)" @reset-pokemons="$emit('reset-data', $event)" />
         </div>
     </header>
 </template>

@@ -31,7 +31,12 @@ export default {
     },
 
     searchType(type) {
-      const searchEndpoint = `https://41tyokboji.execute-api.eu-central-1.amazonaws.com/dev/api/v1/pokemons?eq[type1]=${type}&sort[number]=desc`;
+      let searchEndpoint = '';
+      if (type && type !== 'All') {
+        searchEndpoint = `https://41tyokboji.execute-api.eu-central-1.amazonaws.com/dev/api/v1/pokemons?eq[type1]=${type}&sort[number]=desc`;
+      } else {
+        searchEndpoint = endpoint
+      }
       this.fetchPokemons(searchEndpoint)
     },
   },
@@ -46,7 +51,7 @@ export default {
  
 <template>
   <div class="wrapper">
-    <AppHeader @search-pokemon="searchType" @reset-data="" />
+    <AppHeader @search-pokemon="searchType" @reset-data="searchType" />
     <AppMain />
   </div>
  </template>

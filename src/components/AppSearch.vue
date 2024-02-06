@@ -17,8 +17,8 @@ export default {
         },
 
         resetForm() {
-            // this.typeSearched = '';
-            this.$emit('reset-pokemons');
+            this.typeSearched = '';
+            this.$emit('reset-pokemons', this.typeSearched);
         },
     }
 };
@@ -27,6 +27,7 @@ export default {
 <template>
     <form @submit.prevent="submitForm" name="form">
         <select class="form-select" v-model="typeSearched">
+            <option selected>All</option>
             <option v-for="( type, i ) in  store.types " :key="i">{{ type }}
             </option>
         </select>
