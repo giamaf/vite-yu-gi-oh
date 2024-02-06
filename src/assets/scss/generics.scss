@@ -2,3 +2,11 @@ img {
     max-width: 100%;
     display: inline-block;
 }
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: brown;
+    height: 100vh;
+}
