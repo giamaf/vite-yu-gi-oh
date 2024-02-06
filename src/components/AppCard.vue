@@ -14,7 +14,7 @@ export default {
 </script>
  
 <template>
-    <div class="card mb-3 py-3" :class="{
+    <div class="card py-3" :class="{
         'bg-green': type === 'Grass',
         'bg-blue': type === 'Water',
         'bg-red': type === 'Fire',

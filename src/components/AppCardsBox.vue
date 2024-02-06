@@ -36,7 +36,7 @@ main {
         align-items: center;
         background-color: whitesmoke;
         border-radius: 20px;
-        padding: 30px 20px;
+        padding: 20px;
 
     }
 }
