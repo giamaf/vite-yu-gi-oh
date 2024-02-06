@@ -1,14 +1,17 @@
 <script>
 import AppSearch from './components/AppSearch.vue';
 export default {
-    components: { AppSearch }
+    components: { AppSearch },
+
+    emits: ['search-pokemon', 'reset-data'],
+
 };
 </script>
  
 <template>
     <header>
         <div class="container d-flex justify-content-end">
-            <AppSearch />
+            <AppSearch @search-pokemon="$emit('search-pokemon', $event)" @reset-pokemons="$emit('reset-data')" />
         </div>
     </header>
 </template>

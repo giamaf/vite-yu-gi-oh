@@ -18,10 +18,8 @@ export default {
   methods: {
     fetchPokemons(data) {
       axios.get(data).then(res => {
-        //Inserisco la risposta dell'API nello STORE 
+        //Inserisco la risposta dell'API nello STORE
         store.pokemons = res.data.docs;
-        // store.types = res.data;
-        // console.log(store.types)
       })
     },
 
@@ -29,8 +27,12 @@ export default {
       axios.get(data).then(res => {
 
         store.types = res.data;
-
       })
+    },
+
+    searchType(type) {
+      const searchEndpoint = `https://41tyokboji.execute-api.eu-central-1.amazonaws.com/dev/api/v1/pokemons?eq[type1]=${type}&sort[number]=desc`;
+      this.fetchPokemons(searchEndpoint)
     },
   },
 
@@ -44,7 +46,7 @@ export default {
  
 <template>
   <div class="wrapper">
-    <AppHeader />
+    <AppHeader @search-pokemon="searchType" @reset-data="" />
     <AppMain />
   </div>
  </template>
