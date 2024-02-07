@@ -14,7 +14,7 @@ export default {
 </script>
  
 <template>
-    <div class="card py-3" :class="{
+    <div class="card py-3 bg-all" :class="{
         'bg-green': type === 'Grass',
         'bg-blue': type === 'Water',
         'bg-red': type === 'Fire',
@@ -58,6 +58,10 @@ export default {
         font-weight: lighter;
         font-style: italic;
     }
+}
+
+.bg-all {
+    background-color: blanchedalmond
 }
 
 .bg-green {

@@ -1,15 +1,18 @@
 <script>
-import { store } from '../assets/data/store';
 export default {
     // Javascript Logic
     name: 'AppSearch',
 
     data: () => ({
-        store,
         typeSearched: '',
     }),
 
     emits: ['search-pokemon', 'reset-pokemons'],
+
+    props: {
+        options: Array,
+        defaultLabel: String
+    },
 
     methods: {
         submitForm() {
@@ -27,8 +30,8 @@ export default {
 <template>
     <form @submit.prevent="submitForm" name="form">
         <select class="form-select" v-model="typeSearched">
-            <option selected>All</option>
-            <option v-for="( type, i ) in  store.types " :key="i">{{ type }}
+            <option :value="defaultLabel">{{ defaultLabel }}</option>
+            <option v-for="( option, i ) in  options " :key="i">{{ option }}
             </option>
         </select>
         <button class="btn btn-secondary" role="button">Cerca</button>
